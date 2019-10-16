@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="I18nTranslationCollector" xsi:type="object">Underser\TranslationHelper\Console\Command\I18nTranslationCollector</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Underser\TranslationHelper\Service\I18n\Parser\Parser">
+        <arguments>
+            <argument name="adapters" xsi:type="array">
+                <item name="php" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Php</item>
+                <item name="html" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Html</item>
+                <item name="js" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Js</item>
+                <item name="xml" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Xml</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Underser\TranslationHelper\Service\I18n\Parser\Contextual">
+        <arguments>
+            <argument name="adapters" xsi:type="array">
+                <item name="php" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Php</item>
+                <item name="html" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Html</item>
+                <item name="js" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Js</item>
+                <item name="xml" xsi:type="object">Magento\Setup\Module\I18n\Parser\Adapter\Xml</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Underser\TranslationHelper\Service\Generator\FilterableGenerator">
+        <arguments>
+            <argument name="parser" xsi:type="object">Underser\TranslationHelper\Service\I18n\Parser\Parser</argument>
+            <argument name="contextualParser" xsi:type="object">Underser\TranslationHelper\Service\I18n\Parser\Contextual</argument>
+            <argument name="factory" xsi:type="object">Magento\Setup\Module\I18n\Factory</argument>
+            <argument name="optionsResolver" xsi:type="object">Magento\Setup\Module\I18n\Dictionary\Options\ResolverFactory</argument>
+            <argument name="filters" xsi:type="array">
+                <item name="translatedPhrases" xsi:type="object">Underser\TranslationHelper\Service\Filter\TranslatedPhrasesFilter</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Underser\TranslationHelper\Console\Command\I18nTranslationCollector">
+        <arguments>
+            <argument name="filters" xsi:type="array">
+                <item name="locale" xsi:type="object">Underser\TranslationHelper\Console\Input\InputOption</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Underser\TranslationHelper\Console\Input\InputOption" type="Symfony\Component\Console\Input\InputOption">
+        <arguments>
+            <argument name="name" xsi:type="string">locale</argument>
+            <argument name="shortcut" xsi:type="string">l</argument>
+            <argument name="mode" xsi:type="number">2</argument>
+            <argument name="description" xsi:type="string">Exclude from result already translated files for specific locale; ex. --locale fr_FR</argument>
+        </arguments>
+    </virtualType>
+</config>
