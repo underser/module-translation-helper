@@ -10,7 +10,8 @@
         "magento/framework": "102.0.*"
     },
     "require-dev": {
-        "magento/magento-coding-standard": "^4.0"
+        "magento/magento-coding-standard": "^4.0",
+        "phpunit/phpunit": "~6.5.0"
     },
     "repositories": [
         {
