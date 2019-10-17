@@ -16,7 +16,7 @@ cache:
     - $HOME/.composer/cache
 
 script:
-  - vendor/bin/phpcs --ignore=/vendor/,/app/ --standard=vendor/magento/magento-coding-standard/Magento2/ --extensions=php Block/ Helper/ Model/ Console/ Service/ Observer/ Test/
+  - vendor/bin/phpcs --ignore=/vendor/,/app/ --standard=vendor/magento/magento-coding-standard/Magento2/ --extensions=php Console/ Service/
 
 after_script:
 - php vendor/bin/coveralls
