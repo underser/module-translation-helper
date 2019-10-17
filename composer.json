@@ -11,6 +11,12 @@
     "require-dev": {
         "magento/magento-coding-standard": "^4.0"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ],
     "type": "magento2-module",
     "license": [
         "OSL-3.0",
