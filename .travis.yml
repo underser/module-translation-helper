@@ -7,8 +7,14 @@ php:
 - 7.2.0
 - 7.3.0
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y jq
+
 install:
 - echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
+- jq '.autoload["psr-4"]["Magento\\Setup\\"] = "setup/src/Magento/Setup/"' composer.json > tmp.$$.json && mv tmp.$$.json composer.json
+- cat composer.json
 - composer install --prefer-dist
 
 cache:
