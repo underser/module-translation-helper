@@ -4,6 +4,12 @@
     "config": {
         "sort-packages": true
     },
+    "authors": [
+        {
+            "name": "Roman Sliusar",
+            "email": "roman.slusar95@gmail.com"
+        }
+    ],
     "require": {
         "php": "~7.1.3||~7.2.0||~7.3.0",
         "magento/magento2-base": "~2.3.0||~2.2.0",

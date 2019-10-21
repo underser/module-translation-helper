@@ -12,8 +12,6 @@ Tested on Magento v2.3.3 and v2.2.10 (will require at least v2.2 from you)
 
 Run
 ```
-composer config repositories.module-translation-helper github git@github.com:underser/module-translation-helper.git
-
 composer require underser/module-translation-helper
 
 ./bin/magento setup:upgrade
