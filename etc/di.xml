@@ -54,7 +54,7 @@
         <arguments>
             <argument name="name" xsi:type="string">locale</argument>
             <argument name="shortcut" xsi:type="string">l</argument>
-            <argument name="mode" xsi:type="number">2</argument>
+            <argument name="mode" xsi:type="const">Symfony\Component\Console\Input\InputOption::VALUE_REQUIRED</argument>
             <argument name="description" xsi:type="string">Exclude from result already translated files for specific locale; ex. --locale fr_FR</argument>
         </arguments>
     </virtualType>

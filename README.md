@@ -6,22 +6,14 @@ This module will allow you to grab translation files with the ability to exclude
 
 **Magento 2 platform:**
 
-Tested on Magento v2.3.3 (note for now require v2.3.* from you)
+Tested on Magento v2.3.3 and v2.2.10 (will require at least v2.2 from you)
 
 ### How to install
 
-Add to your *composer.json*
-```
-"repositories": {
-    "module-translation-helper": {
-        "type": "github",
-        "url": "git@github.com:underser/module-translation-helper.git"
-    }
-}
-```
-
 Run
 ```
+composer config repositories.module-translation-helper github git@github.com:underser/module-translation-helper.git
+
 composer require underser/module-translation-helper
 
 ./bin/magento setup:upgrade
@@ -49,4 +41,4 @@ will scan only *app/code/Vendor/Module*, and create fr_FR.csv file inside *var* 
 
 ### License
 
-MIT © 2018 [Roman Sliusar](https://github.com/underser/)
+MIT © 2019 [Roman Sliusar](https://github.com/underser/)
