@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/underser/module-translation-helper.svg?branch=master)](https://travis-ci.org/underser/module-translation-helper)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)
+
 # Underser_TranslationHelper Magento 2 module
 
 This module will allow you to grab translation files with the ability to exclude already translated ones.
